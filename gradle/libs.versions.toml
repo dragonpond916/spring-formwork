@@ -1,0 +1,24 @@
+[versions]
+spring-boot = "3.3.1"
+log4j = "2.22.1"
+mapstruct="1.5.5.Final"
+
+[libraries]
+# buildSrc나 includeBuild의 build.gradle.kts 의 의존성은 아래 plugins가 아닌 이 libraries에서 정의해야 한다.
+gradlePlugin-springBoot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot"}
+
+spring-boot-bom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot"}
+
+mapstruct = {module = "org.mapstruct:mapstruct", version.ref="mapstruct"}
+
+[bundles]
+bomDependencies = [
+    "spring-boot-bom"
+]
+
+dependencies = [
+    "mapstruct"
+]
+
+
+[plugins]
